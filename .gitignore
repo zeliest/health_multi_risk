@@ -1,0 +1,8 @@
+exposure_to_hazard/cemetery
+__pycache__/
+*.py[cod]
+prepare_population_data/cemetary
+results/cemetary
+cemetary
+
+

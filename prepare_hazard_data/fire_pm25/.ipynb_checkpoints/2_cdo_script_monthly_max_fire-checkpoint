@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Use the directories set by the main script
+REMAPPED_DIR="${REMAPPED_DIR:-/default/path/to/fire_pm25/remapped}"
+
+# Loop through the years 2003 to 2022 for the second processing step
+for YEAR in {2003..2022}
+do
+  # Define the filenames for the processed fire data
+  INPUT_FILE="${REMAPPED_DIR}/globPMfire_remapped_025deg_${YEAR}.nc"
+  MEAN_FILE="${REMAPPED_DIR}/globPMfire_3day_mean_${YEAR}.nc"
+  MAX_FILE="${REMAPPED_DIR}/globPMfire_monthly_max_3day_mean_${YEAR}.nc"
+
+  # Check if the regridded fire data file exists
+  if [ -f "$INPUT_FILE" ]; then
+    echo "Processing 3-day running mean and monthly max for ${YEAR}..."
+    
+    # Calculate the 3-day running mean
+    cdo timselmean,3 $INPUT_FILE $MEAN_FILE
+    
+    # Calculate the monthly maximum from the 3-day running mean
+    cdo monmax $MEAN_FILE $MAX_FILE
+
+    # Optionally, remove the mean file if no longer needed
+    rm $MEAN_FILE
+
+    echo "Processed ${YEAR} successfully."
+  else
+    echo "Input file missing for ${YEAR}: Skipping..."
+  fi
+done
+
+echo "All fire data processing completed."
