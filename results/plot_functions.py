@@ -4,17 +4,23 @@ import copy
 import datetime
 import matplotlib.pyplot as plt
 from shapely.geometry import Polygon, MultiPolygon, box
-from climada.util.multi_risk import combine_impacts
-
-from climada.util.multi_risk import *
 from cartopy import crs
 import matplotlib as mpl
 import copy
 import datetime
 import matplotlib.pyplot as plt
 from shapely.geometry import Polygon, MultiPolygon, box
-from climada.util.multi_risk import combine_impacts
 
+import os
+import sys
+# Define the relative path to exposure_to_hazard
+module_path = os.path.abspath(os.path.join(os.getcwd(), '..', 'exposure_to_hazard'))
+
+# Add it to Python's search path
+sys.path.append(module_path)
+
+# Now, you can import multi_risk_methods
+from multi_risk_methods import *
 
 colors_dict_combi = {
     'RF': '#1f77b4',  # Blue
@@ -23,7 +29,6 @@ colors_dict_combi = {
     'HW': 'red',  # Red
     'FI': '#ff5733',  # Orange
     'TC': '#17becf',  # Teal
-
     # Combinations
     'RF-EP': 'yellow',  # Mixed Blue
     'RF-DR': '#7497b4',  # Light Blue Grey

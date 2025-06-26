@@ -15,7 +15,7 @@ for year in $(seq 2000 2022); do
     # Check if the input file exists
     if [[ -f "$INPUT_FILE" ]]; then
         # Calculate monthly maximum values
-        cdo timmax "$INPUT_FILE" "$OUTPUT_FILE"
+        cdo monmax "$INPUT_FILE" "$OUTPUT_FILE"
         
         echo "Processed monthly max for year ${year}"
     else

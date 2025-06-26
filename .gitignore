@@ -1,8 +1,32 @@
-exposure_to_hazard/cemetery
+# === Data folders to ignore ===
+exposure_to_hazard/cematary/
+results/cematary/
+cematary/
+*cematary*
+cemetary/
+*cemetary/*
+# === Python cache ===
 __pycache__/
-*.py[cod]
-prepare_population_data/cemetary
-results/cemetary
-cemetary
 
+# === macOS ===
+.DS_Store
+
+# === IDEs ===
+.idea/
+
+# === Jupyter notebook checkpoints ===
+**/.ipynb_checkpoints/
+
+# === Ignore results outputs and figures ===
+results/*.csv
+results/*.png
+results/*.html
+results/interactive_plots.ipynb
+results/interactive_map_single_hazards_year-checkpoint.html
+
+# === Optional: other large or temporary files ===
+*.nc
+*.nc4
+*.hdf5
+*.tif
 

@@ -1,49 +1,13 @@
 #!/bin/bash
 
 # Read directories and files from arguments passed by the main script
-DATA_DIR="$1"
-EXTREME_PRECIP_DIR="$2"
-REMAP_OUTPUT_DIR="$3"
-SOURCE_GRID="$4"
-TARGET_GRID="$5"
+EXTREME_PRECIP_DIR="$1"
+REMAP_OUTPUT_DIR="$2"
+TARGET_GRID="target_grid.txt"
 
 # Create output directory if it doesn't exist
 mkdir -p "$REMAP_OUTPUT_DIR"
 
-# Create source and target grid description files
-cat <<EOT > "$SOURCE_GRID"
-gridtype = lonlat
-gridsize = 6483600
-xname = lon
-xlongname = "Longitude"
-xunits = "degrees_east"
-yname = lat
-ylongname = "Latitude"
-yunits = "degrees_north"
-xsize = 3600
-ysize = 1801
-xfirst = 0.05
-xinc = 0.1
-yfirst = -90.0
-yinc = 0.1
-EOT
-
-cat <<EOT > "$TARGET_GRID"
-gridtype = lonlat
-gridsize = 1038240
-xname = lon
-xlongname = "Longitude"
-xunits = "degrees_east"
-yname = lat
-ylongname = "Latitude"
-yunits = "degrees_north"
-xsize = 1440
-ysize = 721
-xfirst = 0.125
-xinc = 0.25
-yfirst = -90.0
-yinc = 0.25
-EOT
 
 # Process each year
 for year in $(seq 2000 2022); do
