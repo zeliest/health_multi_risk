@@ -1,4 +1,4 @@
-Note: This code makes use of CLIMADA v6.0.1. and dependencies
+Note: This code makes use of CLIMADA v6.0.1. and dependencies.
 For installation instructions, see the official documentation:
 https://climada-python.readthedocs.io/en/stable/guide/install.html
 
