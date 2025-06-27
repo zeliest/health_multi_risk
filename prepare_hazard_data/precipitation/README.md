@@ -1,4 +1,17 @@
-Scripts
+## Daily Precipitation Data (ERA5-Land)
+
+In this folder, we use **ERA5-Land daily total precipitation** as input data.
+
+Each file is named like:  
+**`tp_day_era5-land_${year}.nc`**  
+These contain daily total precipitation values derived from the ERA5-Land dataset.
+
+### Data Source
+- **Dataset:** ERA5-Land: Hourly data on single levels (aggregated to daily totals)
+- **Source:** Copernicus Climate Data Store (CDS)  
+  [https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-land](https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-land)
+
+### Scripts
 
 the script "generate_precip_data.sh" runs all the following scrpts:
 
@@ -67,7 +80,7 @@ Calculates the maximum value for each month.
 Saves these monthly maximum values to the output files.
 
 
-Supporting Files
+### Supporting Files
 
 source_grid.txt
 Description:
